@@ -1,0 +1,49 @@
+# Makefile for 2.11 BSD
+
+CC=cc
+CFLAGS=-O -D__211BSD__
+LIBS=-lm
+
+all: gwbasic
+
+gwbasic: main.o repl.o tokenize.o parse.o variables.o arrays.o strings.o eval.o statements.o functions.o execute.o error.o
+	$(CC) -o gwbasic main.o repl.o tokenize.o parse.o variables.o arrays.o strings.o eval.o statements.o functions.o execute.o error.o $(LIBS)
+
+main.o: main.c gwbasic.h
+	$(CC) $(CFLAGS) -c main.c
+
+repl.o: repl.c gwbasic.h
+	$(CC) $(CFLAGS) -c repl.c
+
+tokenize.o: tokenize.c gwbasic.h
+	$(CC) $(CFLAGS) -c tokenize.c
+
+parse.o: parse.c gwbasic.h
+	$(CC) $(CFLAGS) -c parse.c
+
+variables.o: variables.c gwbasic.h
+	$(CC) $(CFLAGS) -c variables.c
+
+arrays.o: arrays.c gwbasic.h
+	$(CC) $(CFLAGS) -c arrays.c
+
+strings.o: strings.c gwbasic.h
+	$(CC) $(CFLAGS) -c strings.c
+
+eval.o: eval.c gwbasic.h
+	$(CC) $(CFLAGS) -c eval.c
+
+statements.o: statements.c gwbasic.h
+	$(CC) $(CFLAGS) -c statements.c
+
+functions.o: functions.c gwbasic.h
+	$(CC) $(CFLAGS) -c functions.c
+
+execute.o: execute.c gwbasic.h
+	$(CC) $(CFLAGS) -c execute.c
+
+error.o: error.c gwbasic.h
+	$(CC) $(CFLAGS) -c error.c
+
+clean:
+	rm -f gwbasic *.o

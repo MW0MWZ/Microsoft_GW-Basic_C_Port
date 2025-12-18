@@ -1,0 +1,3 @@
+10 X = 1
+20 IF X THEN PRINT "X is true"
+30 END

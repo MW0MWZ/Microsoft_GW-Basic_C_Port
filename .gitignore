@@ -1,0 +1,22 @@
+# Compiled objects
+*.o
+
+# Compiled binary
+gwbasic
+
+# Archives
+*.tar
+*.tar.gz
+*.tgz
+
+# Editor backup files
+*~
+*.swp
+*.swo
+
+# MacOS
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
